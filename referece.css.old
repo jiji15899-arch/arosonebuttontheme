@@ -1,0 +1,57 @@
+홈, 아카이브 썸네일을 업로드하는 특성 이미지 크기를 그대로 유지하려는 경우
+style.css에서
+
+아래 CSS를 찾아서
+
+/* 홈 썸네일 컨테이너를 정사각형으로 유지 */
+.home .post-image, 
+.archive .post-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 1:1 비율 */
+    overflow: hidden;
+    box-shadow: 0 3px 12px -1px rgba(7, 10, 25, 0.2), 0 22px 27px -20px rgba(7, 10, 25, 0.2);
+}
+
+/* 썸네일 이미지가 정사각형 영역을 채우도록 설정 */
+.home .post-image img, 
+.archive .post-image img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* 마우스 오버시 확대 효과 */
+.home .post-image:hover img,
+.archive .post-image:hover img {
+    transform: scale(1.05);
+}
+
+
+아래와 같이 교체합니다.
+
+
+/* 홈 썸네일 */
+.home .post-image, 
+.archive .post-image {
+    overflow: hidden; /* 이미지 확대 시 컨테이너 넘침 방지 */
+    display: block;
+    position: relative;
+        box-shadow: 0 3px 12px -1px rgba(7, 10, 25, 0.2), 0 22px 27px -20px rgba(7, 10, 25, 0.2);
+}
+
+.home .post-image img, 
+.archive .post-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.home .post-image:hover img,
+.archive .post-image:hover img {
+    transform: scale(1.05); /* 이미지 확대 */
+}

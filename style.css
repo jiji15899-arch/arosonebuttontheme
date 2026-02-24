@@ -1,0 +1,976 @@
+/*
+ Theme Name:   Adsensefarm Skin
+ Theme URI:    https://generatepress.com
+ Description:  Default GeneratePress child theme
+ Author:       Tom Usborne
+ Author URI:   https://tomusborne.com
+ Template:     generatepress
+ Version:      2.0
+*/
+
+/* ============================================================
+   🎨 디자인 토큰 (Design Tokens)
+   ============================================================ */
+:root {
+    --color-primary:       #3e5898;
+    --color-primary-dark:  #2c3f6e;
+    --color-primary-light: #eef1fa;
+    --color-accent:        #e84545;
+    --color-dark:          #1e1e2e;
+    --color-text:          #333344;
+    --color-muted:         #666680;
+    --color-border:        #e2e4ef;
+    --color-bg-light:      #f8f9fc;
+    --color-bg-white:      #ffffff;
+    --color-nav-bg:        #1e2235;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,.07);
+    --shadow-md: 0 3px 12px rgba(0,0,0,.10);
+    --shadow-lg: 0 6px 24px rgba(0,0,0,.14);
+    --transition: 0.22s ease;
+}
+
+/* ============================================================
+   🌐 사이트 전체
+   ============================================================ */
+html { scroll-behavior: smooth; }
+
+.site-content { margin-top: 40px; }
+
+.single.separate-containers .inside-article,
+.page-template-default.separate-containers .inside-article {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   📰 포스트 본문
+   ============================================================ */
+.single .entry-content {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.single .entry-content p {
+    margin-bottom: 1.6em;
+    line-height: 1.88;
+    color: var(--color-text);
+}
+
+.single .entry-content .wp-block-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.single .entry-content .wp-block-image img,
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.single .entry-header .entry-meta {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 20px;
+}
+
+/* ============================================================
+   💡 Strong / Bold 하이라이트
+   ============================================================ */
+.single .entry-content strong,
+.single .entry-content b {
+    font-weight: 700;
+    background: linear-gradient(transparent 55%, rgba(255,235,59,.5) 45%);
+    padding: 0 1px;
+}
+
+
+
+/* ============================================================
+   📌 H2 / H3 / H4 — VTrick 원본 완전 동일
+   ============================================================ */
+
+/* 포스트 본문 소제목 공통 */
+.single .entry-content h2,
+.single .entry-content h3,
+.single .entry-content h4 {
+    font-family: var(--body-font, -apple-system, sans-serif);
+    color: rgb(8, 8, 8);
+    font-weight: 600 !important;
+    line-height: 1.9;
+    word-break: normal;
+    word-wrap: break-word;
+    padding-left: 0.75rem;
+    text-indent: 0.1em;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    letter-spacing: normal;
+}
+
+/* H2 — border-left 10px + border-bottom 3px (VTrick 원본) */
+.single .entry-content h2 {
+    font-size: 23px;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    border-left: 10px solid #e95d00;
+    border-bottom: 3px solid #e95d00;
+    background: none !important;
+}
+/* h2 안 화살표 제거 */
+.single .entry-content h2::after { content: none !important; display: none !important; }
+
+/* H3 — border-left 5px orange (VTrick 원본) */
+.single .entry-content h3 {
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    border-left: 5px solid #ff7b00;
+    border-bottom: none;
+    background: none !important;
+}
+
+/* H4 — border-left 5px orange (VTrick 원본) */
+.single .entry-content h4 {
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    border-left: 5px solid #ff7b00;
+    border-bottom: none;
+    background: none !important;
+}
+
+/* h2 바로 뒤 h3, h3 바로 뒤 h4 */
+.single .entry-content h2 + h3,
+.single .entry-content h3 + h4 { margin-top: 1rem; }
+
+/* h2 안 strong 배경 제거 */
+.single .entry-content h2 strong,
+.single .entry-content h3 strong,
+.single .entry-content h4 strong {
+    background: none;
+    color: inherit;
+}
+
+/* ============================================================
+   📊 테이블 — VTrick 원본 완전 동일
+   ============================================================ */
+
+.single .entry-content table,
+.single .entry-content .wp-block-table table {
+    width: 100%;
+    overflow-x: auto;
+    text-align: left;
+    margin: 1.2em 0;
+    border-collapse: collapse;
+    border: 1px solid #d0d5e8;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 1em;
+}
+
+.single .entry-content table td,
+.single .entry-content table th,
+.single .entry-content .wp-block-table td,
+.single .entry-content .wp-block-table th {
+    padding: 6px 12px;
+    border: 1px solid #d0d5e8;
+    vertical-align: middle;
+    line-height: 1.6;
+}
+
+.single .entry-content table thead,
+.single .entry-content .wp-block-table thead {
+    background: #0c5dc8;
+    color: #fff;
+}
+
+.single .entry-content table thead th,
+.single .entry-content .wp-block-table thead th {
+    color: #fff;
+    font-weight: 700;
+    vertical-align: bottom;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+.single .entry-content table tbody tr:nth-of-type(even),
+.single .entry-content .wp-block-table tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, .04);
+}
+
+.single .entry-content table tbody tr:hover,
+.single .entry-content .wp-block-table tbody tr:hover {
+    background-color: rgba(12, 93, 200, .07);
+}
+
+/* 테이블 반응형 래퍼 */
+.single .entry-content .wp-block-table,
+.single .entry-content .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+    .single .entry-content table { font-size: 0.85em; }
+    .single .entry-content table td,
+    .single .entry-content table th { padding: 6px 8px; }
+}
+
+/* ============================================================
+   🌟 VTrick 포인트 컬러 — 최소 보완
+   ============================================================ */
+:root {
+    --vtrick-orange: #ff7a18;
+    --vtrick-orange-dk: #e95d00;
+}
+
+/* UL 불릿 오렌지 */
+.single .entry-content ul:not(.related-articles):not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]):not(.wp-block-gallery):not(.wp-block-social-links) li::before {
+    background: var(--vtrick-orange) !important;
+    box-shadow: 0 0 0 3px rgba(255,122,24,.18) !important;
+}
+/* OL 번호 오렌지 */
+.single .entry-content ol:not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]) li::before {
+    background: var(--vtrick-orange) !important;
+}
+/* 관련글 보더 오렌지 */
+.related-articles { border-left-color: var(--vtrick-orange) !important; }
+/* Read More hover 오렌지 */
+a.read-more:hover {
+    background-color: var(--vtrick-orange) !important;
+    border-color: var(--vtrick-orange) !important;
+}
+/* 페이지네이션 오렌지 */
+nav#nav-below.paging-navigation span.page-numbers.current {
+    background: var(--vtrick-orange) !important;
+    border-color: var(--vtrick-orange) !important;
+}
+nav#nav-below.paging-navigation a.page-numbers:hover,
+nav#nav-below.paging-navigation a.page-numbers:focus {
+    background: var(--vtrick-orange) !important;
+    border-color: var(--vtrick-orange) !important;
+}
+
+/* ============================================================
+   🔗 링크 스타일 — 심플 밑줄
+   (기존 복잡한 그라디언트 fill 효과 제거)
+   ============================================================ */
+.single .entry-content a:not(.wp-element-button):not(.ez-toc-btn):not(.ez-toc-link):not(.gb-button) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(62,88,152,.3);
+    text-decoration-thickness: 1px;
+    transition: color var(--transition), text-decoration-color var(--transition);
+    word-break: break-word;
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.single .entry-content a:not(.wp-element-button):not(.ez-toc-btn):not(.ez-toc-link):not(.wp-block-image a):not(.gb-button):hover {
+    color: var(--color-primary-dark);
+    text-decoration-color: var(--color-primary);
+    text-decoration-thickness: 2px;
+    background: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+/* ============================================================
+   📋 불릿 리스트 (UL)
+   ============================================================ */
+.single .entry-content ul:not(.related-articles):not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]):not(.wp-block-gallery):not(.wp-block-social-links) {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.2em 0 1.8em;
+}
+
+.single .entry-content ul:not(.related-articles):not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]):not(.wp-block-gallery):not(.wp-block-social-links) li {
+    position: relative;
+    padding: 7px 0 7px 30px;
+    line-height: 1.78;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.single .entry-content ul:not(.related-articles):not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]):not(.wp-block-gallery):not(.wp-block-social-links) li:last-child {
+    border-bottom: none;
+}
+
+.single .entry-content ul:not(.related-articles):not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]):not(.wp-block-gallery):not(.wp-block-social-links) li::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(62,88,152,.18);
+}
+
+/* ============================================================
+   📋 번호 리스트 (OL)
+   ============================================================ */
+.single .entry-content ol:not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]) {
+    list-style: none;
+    counter-reset: ol-counter;
+    padding-left: 0;
+    margin: 1.2em 0 1.8em;
+}
+
+.single .entry-content ol:not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]) li {
+    position: relative;
+    counter-increment: ol-counter;
+    padding: 8px 0 8px 42px;
+    line-height: 1.78;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.single .entry-content ol:not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]) li:last-child { border-bottom: none; }
+
+.single .entry-content ol:not(.ez-toc-list):not([class*="ez-toc"]):not([class*="toc"]) li::before {
+    content: counter(ol-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.76em;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 중첩 */
+.single .entry-content ul:not(.related-articles):not([class*="ez-toc"]):not([class*="toc"]) ul:not([class*="ez-toc"]):not([class*="toc"]),
+.single .entry-content ol:not([class*="ez-toc"]):not([class*="toc"]) ol {
+    margin: 4px 0 4px 16px;
+}
+
+.single .entry-content ul:not(.related-articles):not([class*="ez-toc"]):not([class*="toc"]) ul:not([class*="ez-toc"]):not([class*="toc"]) li::before {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    box-shadow: none;
+}
+
+/* ============================================================
+   💬 블록쿼트
+   ============================================================ */
+.wp-block-quote {
+    position: relative;
+    background: #fafbff;
+    border-left: 5px solid var(--color-accent);
+    margin: 1.8em 0;
+    padding: 1.4em 24px 1.4em 68px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: normal;
+    font-size: 0.97em;
+    color: var(--color-text);
+    box-shadow: var(--shadow-sm);
+}
+
+.wp-block-quote::before {
+    font-family: Georgia, serif;
+    content: open-quote;
+    color: var(--color-accent);
+    font-size: 5em;
+    position: absolute;
+    left: 14px;
+    top: -4px;
+    line-height: 1;
+    opacity: 0.22;
+}
+
+.wp-block-quote::after { content: ''; }
+
+.wp-block-quote p { margin-bottom: 0.5em; line-height: 1.76; }
+
+.wp-block-quote cite {
+    display: block;
+    font-style: italic;
+    font-size: 0.87em;
+    color: var(--color-muted);
+    margin-top: 10px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 8px;
+}
+
+/* ============================================================
+   🗂️ 코드
+   ============================================================ */
+.single .entry-content code {
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 2px 6px;
+    font-size: 0.87em;
+    color: #c0392b;
+    font-family: 'Courier New', monospace;
+}
+
+.single .entry-content pre {
+    background: var(--color-dark);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    box-shadow: var(--shadow-md);
+}
+
+.single .entry-content pre code {
+    background: transparent;
+    border: none;
+    color: #e8eaf6;
+    font-size: 0.9em;
+    padding: 0;
+}
+
+/* ============================================================
+   🏠 홈/아카이브 카드 제목 (헤딩 특수효과 제거)
+   ============================================================ */
+.home h2.entry-title,
+.archive h2.entry-title {
+    font-size: 1.08em;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-text);
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin: 0 0 0.3em !important;
+    letter-spacing: 0;
+}
+.home h2.entry-title::after,
+.archive h2.entry-title::after { content: none !important; }
+
+.home .post-image,
+.archive .post-image {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    box-shadow: var(--shadow-md);
+}
+
+.home .post-image img,
+.archive .post-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.35s ease;
+}
+
+.home .post-image:hover img,
+.archive .post-image:hover img { transform: scale(1.04); }
+
+/* ============================================================
+   🧭 포스트 내비게이션
+   ============================================================ */
+.single #nav-below {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background-color: var(--color-nav-bg);
+    border-top: 1px solid rgba(255,255,255,.06);
+    box-shadow: var(--shadow-lg);
+    margin-top: 20px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    gap: 10px;
+}
+
+.single .nav-previous, .single .nav-next {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.single .nav-previous { justify-content: flex-end; order: 2; }
+.single .nav-next    { justify-content: flex-start; order: 1; }
+
+.single .post-navigation .gp-icon { display: none; }
+
+.single .nav-previous::after {
+    content: '▶';
+    margin-left: 8px;
+    font-size: 0.68em;
+    color: rgba(255,255,255,.35);
+}
+
+.single .nav-next::before {
+    content: '◀';
+    margin-right: 8px;
+    font-size: 0.68em;
+    color: rgba(255,255,255,.35);
+}
+
+.single .prev a, .single .next a {
+    color: #c5ccdf !important;
+    text-decoration: none;
+    font-weight: 500 !important;
+    font-size: 0.88em;
+    transition: color var(--transition), background var(--transition);
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    background: rgba(255,255,255,.06);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.single .prev a:hover, .single .next a:hover {
+    color: #fff !important;
+    background: rgba(255,255,255,.15);
+}
+
+@media (max-width: 768px) {
+    .single #nav-below { flex-direction: column; }
+    .single .nav-previous, .single .nav-next { width: 100%; margin-bottom: 8px; }
+    .single .nav-previous { justify-content: flex-end; order: 2; }
+    .single .nav-next    { justify-content: flex-start; order: 1; }
+}
+
+/* ============================================================
+   🔗 관련 글 박스
+   ============================================================ */
+.related-articles {
+    background: linear-gradient(135deg, #f0f4ff 0%, #f8f9fc 100%);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+    margin: 24px 0;
+    border: 1px solid rgba(62,88,152,.15);
+    border-left: 4px solid var(--color-primary);
+    list-style: none;
+}
+
+.related-articles::before {
+    content: '✅ 함께 보면 좋은 글';
+    display: block;
+    font-weight: 700;
+    font-size: 1em;
+    margin-bottom: 12px;
+    color: var(--color-dark);
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+.related-articles li { margin-bottom: 7px; line-height: 1.72; }
+
+.related-articles li::before {
+    content: '👉';
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 0.9em;
+}
+
+.related-articles a {
+    color: var(--color-primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid rgba(62,88,152,.25) !important;
+    background: none !important;
+    padding: 0 !important;
+    transition: color var(--transition), border-color var(--transition) !important;
+}
+
+.related-articles a:hover {
+    color: var(--color-primary-dark) !important;
+    border-bottom-color: var(--color-primary) !important;
+}
+
+/* ============================================================
+   📄 페이지네이션
+   ============================================================ */
+nav#nav-below.paging-navigation .page-numbers {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 6px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+    text-decoration: none;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+}
+
+nav#nav-below.paging-navigation span.page-numbers.current {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+    font-weight: 700;
+}
+
+nav#nav-below.paging-navigation a.page-numbers:hover,
+nav#nav-below.paging-navigation a.page-numbers:focus {
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+}
+
+.separate-containers .paging-navigation { padding: 20px 0; text-align: center; }
+
+/* ============================================================
+   🔘 버튼
+   ============================================================ */
+.wp-block-buttons { margin-bottom: 15px; }
+
+.blueBtn.wp-block-buttons > .wp-block-button,
+.greenBtn.wp-block-buttons > .wp-block-button,
+.redBtn.wp-block-buttons > .wp-block-button,
+.orangeBtn.wp-block-buttons > .wp-block-button,
+.purpleBtn.wp-block-buttons > .wp-block-button,
+.tealBtn.wp-block-buttons > .wp-block-button,
+.pinkBtn.wp-block-buttons > .wp-block-button,
+.yellowBtn.wp-block-buttons > .wp-block-button,
+.cyanBtn.wp-block-buttons > .wp-block-button,
+.emeraldBtn.wp-block-buttons > .wp-block-button,
+.indigoBtn.wp-block-buttons > .wp-block-button {
+    width: 85% !important;
+    margin: 0 auto !important;
+}
+
+.blueBtn .wp-block-button__link,
+.greenBtn .wp-block-button__link,
+.redBtn .wp-block-button__link,
+.orangeBtn .wp-block-button__link,
+.purpleBtn .wp-block-button__link,
+.tealBtn .wp-block-button__link,
+.pinkBtn .wp-block-button__link,
+.yellowBtn .wp-block-button__link,
+.cyanBtn .wp-block-button__link,
+.emeraldBtn .wp-block-button__link,
+.indigoBtn .wp-block-button__link {
+    display: block !important;
+    padding: 18px 30px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 20px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    transition: all 0.35s ease !important;
+    animation: pulse 2.4s infinite !important;
+    box-sizing: border-box !important;
+}
+
+.blueBtn .wp-block-button__link   { background-color: #0059a6 !important; box-shadow: 0 4px 18px rgba(0,89,166,.38) !important; }
+.blueBtn .wp-block-button__link:hover { background-color: #003f7f !important; }
+.greenBtn .wp-block-button__link  { background-color: #037631 !important; box-shadow: 0 4px 18px rgba(3,118,49,.38) !important; }
+.greenBtn .wp-block-button__link:hover { background-color: #025a27 !important; }
+.redBtn .wp-block-button__link    { background-color: #ce1300 !important; box-shadow: 0 4px 18px rgba(206,19,0,.38) !important; }
+.redBtn .wp-block-button__link:hover { background-color: #a81000 !important; }
+.orangeBtn .wp-block-button__link { background-color: #f28c38 !important; box-shadow: 0 4px 18px rgba(242,140,56,.38) !important; }
+.orangeBtn .wp-block-button__link:hover { background-color: #d97420 !important; }
+.purpleBtn .wp-block-button__link { background-color: #6a1b9a !important; box-shadow: 0 4px 18px rgba(106,27,154,.38) !important; }
+.purpleBtn .wp-block-button__link:hover { background-color: #4e1380 !important; }
+.tealBtn .wp-block-button__link   { background-color: #00897b !important; box-shadow: 0 4px 18px rgba(0,137,123,.38) !important; }
+.tealBtn .wp-block-button__link:hover { background-color: #00695c !important; }
+.pinkBtn .wp-block-button__link   { background-color: #e91e63 !important; box-shadow: 0 4px 18px rgba(233,30,99,.38) !important; }
+.pinkBtn .wp-block-button__link:hover { background-color: #c2185b !important; }
+.yellowBtn .wp-block-button__link { background-color: #fbc02d !important; box-shadow: 0 4px 18px rgba(251,192,45,.38) !important; }
+.yellowBtn .wp-block-button__link:hover { background-color: #e8a900 !important; }
+.cyanBtn .wp-block-button__link   { background-color: #00bcd4 !important; box-shadow: 0 4px 18px rgba(0,188,212,.38) !important; }
+.cyanBtn .wp-block-button__link:hover { background-color: #0097a7 !important; }
+.emeraldBtn .wp-block-button__link { background-color: #2ecc71 !important; box-shadow: 0 4px 18px rgba(46,204,113,.38) !important; }
+.emeraldBtn .wp-block-button__link:hover { background-color: #25a25a !important; }
+.indigoBtn .wp-block-button__link { background-color: #3f51b5 !important; box-shadow: 0 4px 18px rgba(63,81,181,.38) !important; }
+.indigoBtn .wp-block-button__link:hover { background-color: #2e3b8e !important; }
+
+.blueBtn .wp-block-button__link:hover, .greenBtn .wp-block-button__link:hover,
+.redBtn .wp-block-button__link:hover, .orangeBtn .wp-block-button__link:hover,
+.purpleBtn .wp-block-button__link:hover, .tealBtn .wp-block-button__link:hover,
+.pinkBtn .wp-block-button__link:hover, .yellowBtn .wp-block-button__link:hover,
+.cyanBtn .wp-block-button__link:hover, .emeraldBtn .wp-block-button__link:hover,
+.indigoBtn .wp-block-button__link:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 4px 18px rgba(0,0,0,.22); }
+    50%  { box-shadow: 0 6px 26px rgba(0,0,0,.32); }
+    100% { box-shadow: 0 4px 18px rgba(0,0,0,.22); }
+}
+
+/* ============================================================
+   📖 Read More
+   ============================================================ */
+a.read-more {
+    float: right;
+    height: 28px;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    font-size: 0.74em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 28px;
+    padding: 0 14px;
+    margin: 10px 0 20px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+a.read-more::before { content: '→'; margin-right: 5px; }
+
+a.read-more:hover {
+    color: #fff;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* ============================================================
+   👤 Author Box
+   ============================================================ */
+.saboxplugin-wrap {
+    margin-top: 20px !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden;
+}
+
+.saboxplugin-wrap .saboxplugin-gravatar img {
+    border-radius: 50% !important;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+/* ============================================================
+   💬 댓글
+   ============================================================ */
+@media (min-width: 769px) {
+    .comment-form #author,
+    .comment-form #email {
+        float: left;
+        width: 48%;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+    .comment-form #author { margin-right: 4%; }
+    .comment-form #url {
+        clear: both;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+}
+
+#reply-title { display: none; }
+
+h3.comments-title {
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 26px;
+    border-bottom: 2px solid var(--color-dark);
+    font-weight: 700;
+}
+
+h3.comments-title span {
+    display: inline-block;
+    padding: 7px 12px 4px;
+    background-color: var(--color-dark);
+    color: #fff;
+    font-size: 0.7em;
+    line-height: 17px;
+}
+
+/* ============================================================
+   🗂️ 관련 글 (wp-show-posts)
+   ============================================================ */
+.wp-show-posts-columns .wp-show-posts-inner { margin: 0 0 0 2em; }
+
+article.wp-show-posts-single { margin-bottom: 20px !important; }
+
+.wp-show-posts-inner {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+    background-color: var(--color-bg-white);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.wp-show-posts-inner:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.wp-show-posts-entry-header { padding: 0 3px; }
+
+.wp-show-posts-image img { transition: transform 0.35s ease; }
+.wp-show-posts-image img:hover { transform: scale(1.04); }
+
+/* ============================================================
+   🏷️ 아카이브 반응형
+   ============================================================ */
+.archive header.page-header { background-color: transparent; }
+
+.home.separate-containers article:first-of-type .inside-article,
+.archive.separate-containers article:first-of-type .inside-article {
+    border-top-left-radius: var(--radius-md);
+}
+
+.home.separate-containers article:nth-of-type(3) .inside-article,
+.archive.separate-containers article:nth-of-type(3) .inside-article {
+    border-top-right-radius: var(--radius-md);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .home.separate-containers article:nth-of-type(2) .inside-article,
+    .archive.separate-containers article:nth-of-type(2) .inside-article {
+        border-top-right-radius: var(--radius-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .home.separate-containers article:first-of-type .inside-article,
+    .archive.separate-containers article:first-of-type .inside-article {
+        border-top-left-radius: var(--radius-md);
+        border-top-right-radius: var(--radius-md);
+    }
+}
+
+@media (max-width: 920px) {
+    .container .site-content .content-area { padding: 0 10px; }
+}
+
+/* ============================================================
+   🦶 푸터
+   ============================================================ */
+.copyright-bar { text-align: left; }
+
+.copyright-bar h2 {
+    font-size: 1.05em !important;
+    font-weight: 600 !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    color: inherit !important;
+    letter-spacing: 0 !important;
+}
+
+.copyright-bar h2::after { content: none !important; }
+
+@media (max-width: 768px) {
+    .site-footer.grid-container { padding: 0 10px; }
+}
+
+/* ============================================================
+   🗂️ 목차 플러그인 안전망 — 위 스타일이 목차에 스며들 경우 강제 리셋
+   ============================================================ */
+
+#ez-toc-container li,
+.ez-toc-widget-container li,
+[class*="ez-toc"] li {
+    position: static !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+    background: none !important;
+    margin: 0 !important;
+    counter-increment: none !important;
+}
+
+#ez-toc-container li::before,
+#ez-toc-container li::after,
+.ez-toc-widget-container li::before,
+.ez-toc-widget-container li::after,
+[class*="ez-toc"] li::before,
+[class*="ez-toc"] li::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* ============================================================
+   🎯 아로스 버튼 (Aros Button) — VTrick 원본 100% 동일
+   ============================================================ */
+
+/* 나눔고딕코딩 */
+@import url('https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic-coding.css');
+
+.entry-content .aros-button,
+.aros-button {
+    display: block !important;
+    background-color: rgb(240, 36, 0) !important;
+    color: #ffffff !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.1s ease !important;
+    width: 80% !important;
+    height: 80px !important;
+    box-shadow: 2px 4px 6px rgba(0,0,0,.4) !important;
+    border-radius: 30px !important;
+    font-size: 35px !important;
+    line-height: 60px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    font-family: 'NanumGothicCoding', 'Malgun Gothic', sans-serif !important;
+    margin: 0 auto 20px !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    background-image: none !important;
+}
+
+.entry-content .aros-button:hover,
+.aros-button:hover {
+    background-color: rgb(235, 161, 65) !important;
+    transform: scale(1.05) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.entry-content .aros-button.most-likely-to-click,
+.aros-button.most-likely-to-click {
+    padding: 20px 30px !important;
+    font-size: 50px !important;
+    height: 96px !important;
+    line-height: 56px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .entry-content .aros-button,
+    .aros-button {
+        font-size: 20px !important;
+        width: 100% !important;
+        height: 50px !important;
+        line-height: 30px !important;
+        border-radius: 20px !important;
+    }
+    .entry-content .aros-button.most-likely-to-click,
+    .aros-button.most-likely-to-click {
+        font-size: 26px !important;
+        height: 62px !important;
+        line-height: 38px !important;
+    }
+}
+
